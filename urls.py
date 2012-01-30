@@ -15,7 +15,10 @@ urlpatterns = patterns('',
     (r'^$', 'static_ish.views.home'),
     (r'^who-are-we/$', 'static_ish.views.about'),
     (r'^how-it-works/$', 'static_ish.views.how'),
-#    (r'^users-stories/$', 'static_ish.views.stories'),
+
+    (r'^facebook/login$', 'facebook.views.login'),
+    (r'^facebook/authentication_callback$', 'facebook.views.authentication_callback'),
+
 
 
 
