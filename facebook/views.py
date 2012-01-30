@@ -23,8 +23,6 @@ def authentication_callback(request):
     user = authenticate(token=code, request=request)
 
     if user.is_anonymous():
-        print "aca vaaaaaaaaa: "
-        print code
         #we have to set this user up
         url = reverse('facebook_setup')
         url += "?code=%s" % code
@@ -36,11 +34,8 @@ def authentication_callback(request):
 
         #figure out where to go after setup
         url = getattr(settings, "LOGIN_REDIRECT_URL", "/")
-        print "url mother fucker: " + url
-        print "code mother fucker: "
         print code
         return redirect(url)
 
 def setup(request):
-    print "WTF is going oooon!!!!"
     return HttpResponseRedirect("/")

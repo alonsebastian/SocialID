@@ -90,7 +90,6 @@ class FacebookBackend:
                                           key_expires=datetime.datetime.today() + datetime.timedelta(2),
                                           social_id = id_salt)
                 new_profile.save()
-                print "new profile!!"
 
         return user
 
