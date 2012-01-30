@@ -1,10 +1,14 @@
 import urllib
 from django.shortcuts import render_to_response, get_object_or_404, redirect
+from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.conf import settings
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import authenticate
 from django.core.urlresolvers import reverse
+
+from accounts.models import UserProfile
+from personal_page.models import PersonalPage
 
 def login(request):
     """ First step of process, redirects user to facebook, which redirects to authentication_callback. """
@@ -24,6 +28,7 @@ def authentication_callback(request):
 
     if user.is_anonymous():
         #we have to set this user up
+        print "is there anybody in there?"
         url = reverse('facebook_setup')
         url += "?code=%s" % code
 
@@ -31,10 +36,14 @@ def authentication_callback(request):
 
     else:
         auth_login(request, user)
-
+        print "are you there?"
         #figure out where to go after setup
-        url = getattr(settings, "LOGIN_REDIRECT_URL", "/")
-        return redirect(url)
+        profile = UserProfile.objects.get(user = user)
+        page = PersonalPage.objects.filter(user = profile)
+        if page:
+            return redirect('/')
+        else:
+            return render_to_response('accounts/welcome.html', {}, context_instance=RequestContext(request))
 
 def setup(request):
     return HttpResponseRedirect("/")

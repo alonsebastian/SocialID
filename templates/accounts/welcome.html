@@ -1,0 +1,22 @@
+<style>.text{
+	color:#333;
+	text-shadow:0px 1px 5px #bfbfbf;
+	font-family: 'Cabin Condensed', sans-serif;
+    font-size:16px;
+	line-height:16px;
+    width:500px;
+}
+</style>
+
+{% extends "misc/base.html" %}
+
+{% block content %}
+<div class="linkedin">
+<p class="text">Congratulations! you have registered a new social ID. From now on your social ID will be:<b> {{ id_ }} </b>.</p>
+<p class="text">Not only will we keep your id safe, but in addition to it we give our users the chance to set up a personal page online. In it,
+you will have the chance to write a small bio about you and add links to all of your online networks. This way if you enter <a href="/{{ id_ }}">http://socialid.com/{{ id_ }}</a> people will find your unique custom personal page.</p>
+<p class="text">However, consider you do not need a personal page for us to guarantee your online identity. So no need to create the site if you're not interested.</p>
+<a href="/site/modify">Create your personal page now</a>
+</div>
+
+{% endblock %}
