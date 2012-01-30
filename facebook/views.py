@@ -34,7 +34,6 @@ def authentication_callback(request):
 
         #figure out where to go after setup
         url = getattr(settings, "LOGIN_REDIRECT_URL", "/")
-        print code
         return redirect(url)
 
 def setup(request):

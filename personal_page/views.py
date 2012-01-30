@@ -75,6 +75,7 @@ def manage (request):
                                 personal_site = linkMaker(form.cleaned_data['personal_site']))
             page.save()
             address = "/" + profile.social_id + "/"
+            return redirect(address)  #aca va el home
         else:
             form = PersonalPageForm()
         return render_to_response("personal_page/modify.html", {'form':form}, context_instance=RequestContext(request))
