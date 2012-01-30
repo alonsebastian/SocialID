@@ -1,0 +1,27 @@
+<style>.text{
+	color:#333;
+	text-shadow:0px 1px 5px #bfbfbf;
+	font-family: 'Cabin Condensed', sans-serif;
+    font-size:10px;
+	line-height:16px;
+}
+</style>
+
+
+{% extends "misc/base.html" %}
+
+{% block content %}
+
+        <form action="/site/modify/" method="post">{% csrf_token %}
+            <table class="softform">
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="Submit">
+        </form>
+
+{% endblock %}
+{% block extra %}
+<p class="text">Whatever you send next will be your new personal info.</p>
+{% endblock %}
+
+

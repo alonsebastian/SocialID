@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Social ID, a unique way of finding your friends</title>
+
+<link href="css.css" rel="stylesheet" type="text/css">
+<link href="css_002.css" rel="stylesheet" type="text/css">
+
+<script src="jquery.js"></script>
+
+<script type="text/javascript">
+
+ $(document).ready(function()
+{
+	$(document.getElementById('pagina')).fadeToggle('fast');
+});
+
+</script>
+
+<style type="text/css">
+
+.about{
+	width:300px;
+	-webkit-border-bottom-left-radius:10px;
+	-moz-border-radius-bottomleft:10px;	
+	position:absolute;
+	right:0;
+	height:100%;
+	border-left:1px solid #999;
+}
+
+.about_text{
+    width:250px;
+	color:#333;
+	text-shadow:0px 1px 5px #bfbfbf;
+	font-family: 'Cabin Condensed', sans-serif;
+    font-size:18px;
+	line-height:17px;
+}
+
+.about ul{
+	list-style:none;
+}
+
+.subtitulo{
+	margin-top:10px;
+	height:30px;
+	font-size:26px;
+	font-weight:bold;
+	text-shadow: 0px 1px 5px #333;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	color:#eee;
+}
+
+.titulo{
+	margin-left:10px;
+	margin-top:5px;
+	float:left;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size:40px;
+	font-weight:bold;
+	text-align: left;
+	position:relative;
+	color: #333;
+	text-shadow: 2px 2px 2px #BBB;
+}
+
+.titulo a{
+    color: #333;
+}
+
+.titulo a:hover{
+	-webkit-transition: all 0.5s;
+    color: #555;
+}
+
+.contenido{
+	
+}
+
+.pagina{
+	width:960px; 
+	height:500px; 
+	background:#ddd; 
+	margin:auto; 
+	-webkit-border-radius:6px; 
+	-moz-border-radius:6px; 
+	box-shadow:0px 0px 7px #888;
+	position:relative;
+	margin-top:10px;
+	vertical-align:auto;
+	border:1px solid #999;
+}
+
+html, body{
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+.footer{
+	position:absolute;
+	width:958px;
+	left:0;
+	bottom:0;
+	border-top:1px solid #999;
+	border-bottom:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-left:1px solid #ccc;
+	background:#aaa;
+	-webkit-border-bottom-left-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	-moz-border-radius-bottomright:6px;
+	height:40px;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+<!--	font-size:18px; -->
+    font-weight:bold;
+	text-shadow:0px 1px 2px #666;
+	padding-top:6px;
+}
+
+.footer a{
+	text-decoration:none;	
+}
+.facebook a{
+	-webkit-transition: all 0.5s;
+	color:#333 !important;
+}
+
+.facebook a:hover{
+	-webkit-transition: all 0.5s;
+	color:#4064A3 !important;
+	text-shadow:0px 1px 2px #555 !important;
+}
+
+.twitter a{
+	-webkit-transition: all 0.5s;
+	color:#333 !important;
+}
+
+.twitter a:hover{
+	-webkit-transition: all 0.5s;
+	color:#3CF !important;
+	text-shadow:0px 1px 2px #555 !important;
+}
+
+.linkedin a{
+	-webkit-transition: all 0.5s;
+	color:#333 !important;
+}
+
+.linkedin a:hover{
+	-webkit-transition: all 0.5s;
+	color:#069 !important;
+	text-shadow:0px 1px 2px #555 !important;
+}
+
+.mail a{
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	text-decoration:none;
+	color:#ddd;
+	font-weight:bold;
+	font-size:18px;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	
+}
+
+.mail a:hover{
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	text-shadow:0px 1px 4px #333;
+	color:#FFF;	
+}
+
+.searchform{
+position:absolute;
+left: 350px;
+top: 15px;
+}
+
+.softform label{
+	color:#444;
+	text-shadow:0px 1px 5px #bfbfbf;
+	font-family: 'Cabin Condensed', sans-serif;
+    font-size:16px;
+	line-height:16px;
+}
+
+
+.softform input{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; 
+    border:1px solid #888;
+}
+.softform input:focus{
+    border:1px solid #AAA;
+}
+
+.softform textarea{
+    max-width: 370px;
+    max-height: 100px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; 
+    border:1px solid #888;
+}
+.softform textarea:focus{
+    border:1px solid #AAA;
+}
+
+
+</style>
+
+</head>
+
+<body background="/static/bg.jpg">
+
+<center><div class="pagina" id="pagina" style="top:40px;">
+
+	<div class="titulo"><p class="titulo"><a href="/">Social ID</a></p></div>
+    <div>
+        <form action="/search/" method="post" class="searchform">{% csrf_token %}
+            <table class="softform">
+            {{ search_form.as_table }}
+            </table>
+        </form></div>
+
+	<div class="about">
+			<div class="subtitulo">
+            	About Social ID
+            </div>
+            <p class="about_text"> We aim to provide the world with a unique social ID that can identify each and every one of us on the web. This way
+we can meet people completely unrelated to us and find them online, or find people with a very common name.</p>
+	</div>
+
+
+        {% block who %} {% endblock %}
+	<div class="contenido" style="position:absolute; top: 85px; width: 660px; align:center">
+        {% block content %} {% endblock %}
+        {% block networks %} {% endblock %}
+        {% block extra %} {% endblock %}
+
+	</div>
+
+	<div class="footer">
+
+		<div style="position:absolute; left:0px; top:10px;width:945px;">
+        <table border="0" cellpadding="0" cellspacing="0" style="position:absolute; left:px;">
+		  <tbody><tr>
+		    <td height="30" align="center" valign="middle" width="120"><div class="linkedin"><a href="/">Home</a></div></td>
+		    <td align="center" valign="middle" width="120"><div class="linkedin"><a href="/who-are-we">Who are we</a></div></td>
+		    <td align="center" valign="middle" width="120"><div class="linkedin"><a href="/how-it-works">How it works</a></div></td>
+            {% if username %}
+		    <td align="center" valign="middle" width="120"><div class="linkedin"><a href="/accounts/logout">Logout</a></div></td>
+            {% else %}
+		    <td align="center" valign="middle" width="120"><div class="linkedin"><a href="/accounts/register">Register</a></div></td>
+            {% endif %}
+
+            {% if username %}
+		    <div class="linkedin" style="position:absolute; right:20px;top:3px;"><a href="/{{ id_ }}">{{ username }}<b>({{ id_ }})</b></a></div>
+            {% else %}
+		    <div class="linkedin" style="position:absolute; right:20px;top:3px;"><a href="/accounts/login">Login</a></div>
+            {% endif %}
+	      </tr>
+	  </tbody></table>
+	  </div>	
+        
+	</div>
+
+</div></center>
+
+
+
+</body></html>

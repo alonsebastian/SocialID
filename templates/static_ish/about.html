@@ -1,0 +1,41 @@
+<style>.text{
+	color:#333;
+	text-shadow:0px 1px 5px #bfbfbf;
+    font-size:14px;
+	line-height:14px;
+}
+
+.twitter a{
+	-webkit-transition: all 0.5s;
+	color:#333 !important;
+}
+
+.twitter a:hover{
+	-webkit-transition: all 0.5s;
+	color:#3AF !important;
+	text-shadow:0px 1px 1px #555 !important;
+}
+
+.title{
+    color:#444;
+    font-size:22px;
+}
+</style>
+
+{% extends "misc/base.html" %}
+
+{% block who %}
+
+
+<div class="contenido" style="position:absolute;left:90px;top:50px;width:500px;">
+<h2 class="title">Sebastian Alonso</h2>
+<p class="text"> Sebastian Alonso is founder and lead developer at Social ID. He's in charge of deciding where the product heads to and how that should happen.
+His focus is to give people the chance to easily keep in contact with people rather unrelated to them. After several academic trips abroad and meeting hundreds of people he would not have otherwise, he realised it is a harsh to find people online with whom you have no previous contact or no common friends.
+</p>
+
+<div class="twitter"><p class="text"><img src="/static/twitterLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Follow him on twitter <a target="_blank" href="http://twitter.com/#%21/alonsebastian">@alonsebastian</a></p></div>
+
+
+<div class="twitter"><p class="text"><img src="/static/tumblrLogo.gif" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Or read his tumblog <a target="_blank" href="http://blog.alonsebastian.com.ar">here</a></p></div>
+</div>
+{% endblock %}

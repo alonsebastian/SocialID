@@ -1,0 +1,52 @@
+<style>
+.text{
+	color:#444;
+	text-shadow:0px 1px 5px #bfbfbf;
+	font-family: 'Cabin Condensed', sans-serif;
+    font-size:16px;
+	line-height:16px;
+}
+
+.link a{
+	-webkit-transition: all 0.5s;
+	color:#333 !important;
+}
+
+.link a:hover{
+	-webkit-transition: all 0.5s;
+	color:#069 !important;
+	text-shadow:0px 1px 1px #555 !important;
+}
+</style>
+
+{% extends "misc/base.html" %}
+
+{% block content %}
+
+{% if form.errors %}
+<p class="text">Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if invalid %}
+<p class="text">Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<form method="post" action="/accounts/login/">
+{% csrf_token %}
+<table class="softform">
+<tr>
+    <td><b class="text">{{ form.username.label_tag }}</b></td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td><b class="text">{{ form.password.label_tag }}</b></td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
+
+<input type="submit" value="login" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+{% endblock %}
+

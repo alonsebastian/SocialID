@@ -1,0 +1,31 @@
+<style>
+.text{
+	color:#333;
+	text-shadow:0px 1px 5px #bfbfbf;
+	font-family: 'Cabin Condensed', sans-serif;
+    font-size:16px;
+	line-height:16px;
+}
+
+.link a{
+	-webkit-transition: all 0.5s;
+	color:#333 !important;
+}
+
+.link a:hover{
+	-webkit-transition: all 0.5s;
+	color:#069 !important;
+	text-shadow:0px 1px 1px #555 !important;
+}
+</style>
+
+{% extends "misc/base.html" %}
+
+
+{% block content %}
+
+<p class="text">You have succesfully logged out.</p>
+
+<p class="link"><a href="/accounts/login/">Login</a></p>
+
+{% endblock %}

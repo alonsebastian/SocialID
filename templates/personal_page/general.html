@@ -1,0 +1,71 @@
+<style>.text{
+	color:#333;
+	text-shadow:0px 1px 5px #bfbfbf;
+	font-family: 'Cabin Condensed', sans-serif;
+    font-size:16px;
+	line-height:16px;
+}
+
+.sites a{
+	-webkit-transition: all 0.5s;
+	color:#333 !important;
+}
+
+.sites a:hover{
+	-webkit-transition: all 0.5s;
+	color:#069 !important;
+	text-shadow:0px 1px 1px #555 !important;
+}
+</style>
+
+{% extends "misc/base.html" %}
+
+{% block content %}
+{% if not_found %}
+<p> Sorry, but the personal page you're looking for doesnt exist.</p>
+{% endif %}
+{% if editable %}
+    {% if not username %}
+        <div style="position:absolute; left:450px;"><p class="sites"><a href="/site/modify/">Edit</a></p></div>
+{% endif %}
+{% endif %}
+
+
+{% if site.bio %}
+<p class="text">{{ site.bio }}</p>
+{% endif %}
+{% if no_bio %}
+<p class="text"> This user has not updated his bio. </p>
+{% endif %}
+{% if site.location %}
+<p class="text">{{ site.location }}</p>
+{% endif %}
+
+
+
+{% endblock %}
+
+{% block networks %}
+<div class="contenido" style="position:absolute; left:100px;text-align:left">
+<ul>
+{% if site.facebook %}
+<div class="sites"><a href="{{ site.facebook }}"><img src="/static/facebookLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Facebook</a></div>
+{% endif %}
+{% if site.twitter %}
+<div class="sites"><a href="{{ site.twitter }}"><img src="/static/twitterLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Twitter</a></div>
+{% endif %}
+{% if site.tumblr %}
+<div class="sites"><a href="{{ site.tumblr }}"><img src="/static/tumblrLogo.gif" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Tumblr</a></div>
+{% endif %}
+{% if site.linkedin %}
+<div class="sites"><a href="{{ site.linkedin }}"><img src="/static/linkedinLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Linkedin</a></div>
+{% endif %}
+{% if site.personal_site %}
+<div class="sites"><a href="{{ site.personal_site }}">Personal Site</a></div>
+{% endif %}
+</ul>
+{% if edit_button %}
+<div style="position:absolute; left:450px;"><p class="sites"><a href="/site/modify/">Edit</a></p></div>
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+<style>.text{
+	color:#333;
+	text-shadow:0px 1px 5px #bfbfbf;
+	font-family: 'Cabin Condensed', sans-serif;
+    font-size:16px;
+	line-height:16px;
+}
+</style>
+
+{% extends "misc/base.html" %}
+
+{% block content %}
+
+{% if has_account %}
+    <p class="text" style="width:300px;">Hey! You were already logged in!</p>
+{% endif %}
+
+{% if invalid %}
+    <p class="text" style="width:300px;">Sorry, but this account has not been validated yet. Please go to your e-mail account and click the activation link.</p>
+{% endif %}
+
+{% if expired %}
+    <p class="text" style="width:300px;"> Time's up, sorry, but it took you too long to activate your account</p>
+{% endif %}
+
+{% if success %}
+    <p class="text" style="width:300px;"> Congratulations! you've succesfully registered your social ID. You might as well want to <a href="/accounts/login">Login</a></p>
+{% endif %}
+
+{% if not_found %}
+    <p class="text" style="width:300px;"> Sorry, but we the activation link didn't work. Please try again.</p>
+{% endif %}
+
+{% endblock %}
+
+

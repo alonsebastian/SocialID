@@ -1,0 +1,19 @@
+{% extends "misc/base.html" %}
+
+
+
+{% if user %}
+        <p> you're already logged in as {{ user }}<p>
+{% endif %}
+
+{% block content %}
+
+<li><a href="/accounts/login/"> login </a></li>
+<li><a href="/accounts/logout/"> logout </a></li>
+<li><a href="/startup/create/"> create </a></li>
+<li><a href="/startup/create/"> modify </a></li>
+
+
+{% endblock %}
+
+
