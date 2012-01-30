@@ -1,5 +1,5 @@
 import urllib
-
+from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from django.conf import settings
 from django.contrib.auth import login as auth_login
@@ -23,18 +23,24 @@ def authentication_callback(request):
     user = authenticate(token=code, request=request)
 
     if user.is_anonymous():
+        print "aca vaaaaaaaaa: "
+        print code
         #we have to set this user up
         url = reverse('facebook_setup')
         url += "?code=%s" % code
 
-        resp = HttpResponseRedirect(url)
+        return redirect(url)
 
     else:
         auth_login(request, user)
 
         #figure out where to go after setup
         url = getattr(settings, "LOGIN_REDIRECT_URL", "/")
+        print "url mother fucker: " + url
+        print "code mother fucker: "
+        print code
+        return redirect(url)
 
-        resp = HttpResponseRedirect(url)
-    
-    return resp
+def setup(request):
+    print "WTF is going oooon!!!!"
+    return HttpResponseRedirect("/")

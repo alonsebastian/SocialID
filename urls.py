@@ -18,6 +18,7 @@ urlpatterns = patterns('',
 
     (r'^facebook/login$', 'facebook.views.login'),
     (r'^facebook/authentication_callback$', 'facebook.views.authentication_callback'),
+#    (r'^facebook_setup/(?\S+)/$', 'facebook.views.setup'),
 
 
 
