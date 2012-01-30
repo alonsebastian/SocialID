@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/home/sebastian/Programming/uniqueid/first/base.db',                      # Or path to database file if using sqlite3.
+        'NAME': '/home/sebastian/Programming/uniqueid/dev/base.db',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -68,7 +68,7 @@ STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
-STATICFILES_DIRS = ("/home/sebastian/Programming/uniqueid/first/static",
+STATICFILES_DIRS = ("/home/sebastian/Programming/uniqueid/dev/static",
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -109,9 +109,9 @@ TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
                                 'search.context_processor.addSearchForm',
                                 "accounts.context_processor.user",)
 
-ROOT_URLCONF = 'first.urls'
+ROOT_URLCONF = 'dev.urls'
 
-TEMPLATE_DIRS = ("/home/sebastian/Programming/uniqueid/first/templates",
+TEMPLATE_DIRS = ("/home/sebastian/Programming/uniqueid/dev/templates",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -132,10 +132,10 @@ INSTALLED_APPS = (
      'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
      'django.contrib.admindocs',
-     'first.accounts',
-     'first.search',
-     'first.personal_page',
-     'first.static_ish',
+     'dev.accounts',
+     'dev.search',
+     'dev.personal_page',
+     'dev.static_ish',
 )
 
 # A sample logging configuration. The only tangible logging

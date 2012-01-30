@@ -19,7 +19,6 @@ def personal(request, id_): #send id from url.py as argument
             if 'id_' in dictionary: 
                 if dictionary['id_'] == id_:
                     editable = True
-                    print "aleluya!!!"
                     break
     if user and site:
         site = site[0]
@@ -82,8 +81,6 @@ def linkMaker(string):
     """ Some users would give the full URL to their online profiles (facebook, linkedin, etc).
         Other didn't. Because of this every URL goes through this simple filter to make sure it
         is a link."""
-    print "sape"
-    print string
     if string == "": return ""
     if "http://" not in string.lower():
         string = "http://" + string

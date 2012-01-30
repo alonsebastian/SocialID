@@ -5,10 +5,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.template import RequestContext
 
-from first.accounts.models import UserProfile, idOnly
-from first.accounts.forms import RegistrationForm, LoginForm
+from accounts.models import UserProfile, idOnly
+from accounts.forms import RegistrationForm, LoginForm
 from personal_page.models import PersonalPage
-from first.search.forms import SearchForm
+from search.forms import SearchForm
 
 
 def register(request):
