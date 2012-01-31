@@ -37,10 +37,10 @@ left:155px;
 {% extends "misc/base.html" %}
 
 {% block content %}
-
+{% if not username %}
 <div class="login-box">
 <p class="text">Login with your Social ID account</p>
-<form method="post" action="/accounts/login/">
+<form method="post" action="/accounts/login/" style="margin-left:30px;">
 {% csrf_token %}
 <table class="softform">
 <tr>
@@ -62,6 +62,16 @@ left:155px;
 <div class="register-box linkedin">
 <p class="basiclink"><a href="/accounts/register">Register a new Social ID</a></p>
 </div>
+{% else %}
 
+<div class="login-box">
+<p class="text"> Welcome {{ username }}<b>({{ id_ }})</b> </p>
+<div class="basiclink" style="padding:5px;"><a href="/site/modify">Modify your personal page</a></div>
+<div class="basiclink" style="padding:5px;"><a href="/accounts/logout">Logout</a></div>
+</div>
+
+
+
+{% endif %}
 {% endblock %}
 

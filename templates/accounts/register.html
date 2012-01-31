@@ -5,6 +5,19 @@
     font-size:16px;
 	line-height:16px;
 }
+.register-box
+{
+height: 230px;
+width:  350px;
+border: 1px solid black;
+background-color: #EEE;
+text-align:center;
+border-radius:9px 9px 9px 9px;
+position:absolute;
+padding:15px;
+top: 10px;
+left:145px;
+}
 </style>
 
 {% extends "misc/base.html" %}
@@ -24,7 +37,8 @@
 
 
         {% if not created %}
-        <form action="/accounts/register/" method="post">{% csrf_token %}
+    <div class="register-box">
+        <form action="/accounts/register/" method="post" style="margin-left:26px;">{% csrf_token %}
             <table class="softform">
                 {{ form.as_table }}
             </table>
@@ -38,6 +52,6 @@
     {% if empty %}
         <p class="text">Please fill in all the fields.</p>
     {% endif %}
-
+    </div>
 {% endif %}
 {% endblock %}

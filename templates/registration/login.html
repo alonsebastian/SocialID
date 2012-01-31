@@ -6,6 +6,18 @@
     font-size:16px;
 	line-height:16px;
 }
+.login-box
+{
+height: 180px; /*Specify Height*/
+width:  350px; /*Specify Width*/
+border: 1px solid black;
+background-color: #EEE;
+text-align:center;
+border-radius:9px 9px 9px 9px;
+position:absolute;
+top: 10px;
+left:155px;
+}
 </style>
 
 {% extends "misc/base.html" %}
@@ -20,7 +32,8 @@
 <p class="text">Your username and password didn't match. Please try again.</p>
 {% endif %}
 
-<form method="post" action="/accounts/login/">
+<div class="login-box">
+<form method="post" action="/accounts/login/" style="margin-left:30px; margin-top:20px;">
 {% csrf_token %}
 <table class="softform">
 <tr>
@@ -37,7 +50,8 @@
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
-<p class="basiclink"><a href="/facebook/login/"><img src="/static/facebookLogo.png">Click here to log in with a facebook account. </a></p>
 
+<p class="basiclink"><a href="/facebook/login/"><img src="/static/facebookLogo.png">Click here to log in with a facebook account. </a></p>
+</div>
 {% endblock %}
 
