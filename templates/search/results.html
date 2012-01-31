@@ -1,17 +1,3 @@
-<style>
-.link a{
-	-webkit-transition: all 0.5s;
-	color:#333 !important;
-}
-
-.link a:hover{
-	-webkit-transition: all 0.5s;
-	color:#069 !important;
-	text-shadow:0px 1px 1px #555 !important;
-}
-</style>
-
-
 {% extends "misc/base.html" %}
 
 {% block content %}
@@ -20,7 +6,7 @@
 {% endif %}
 <ul>
 {% for result in results %}
-    <div class="link"><li> <a href="/{{ result.social_id }}/">{{ result.user.first_name|capfirst }} {{ result.user.last_name|capfirst }} <b>({{ result.social_id }})</b></div> </li>
+    <div class="basiclink"><li> <a href="/{{ result.social_id }}/">{{ result.user.first_name|capfirst }} {{ result.user.last_name|capfirst }} <b>({{ result.social_id }})</b></div> </li>
 {% endfor %}
 </ul>
 {% if how_many > 10 %}

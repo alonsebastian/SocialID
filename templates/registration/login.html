@@ -6,17 +6,6 @@
     font-size:16px;
 	line-height:16px;
 }
-
-.fblogin a{
-	-webkit-transition: all 0.5s;
-	color:#333 !important;
-}
-
-.fblogin a:hover{
-	-webkit-transition: all 0.5s;
-	color:#3AF !important;
-	text-shadow:0px 1px 1px #555 !important;
-}
 </style>
 
 {% extends "misc/base.html" %}
@@ -48,7 +37,7 @@
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
-<p class="fblogin"><a href="/facebook/login/"><img src="/static/facebookLogo.png">Click here to log in with a facebook account. </a></p>
+<p class="basiclink"><a href="/facebook/login/"><img src="/static/facebookLogo.png">Click here to log in with a facebook account. </a></p>
 
 {% endblock %}
 

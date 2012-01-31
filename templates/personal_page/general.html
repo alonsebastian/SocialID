@@ -5,17 +5,6 @@
     font-size:16px;
 	line-height:16px;
 }
-
-.sites a{
-	-webkit-transition: all 0.5s;
-	color:#333 !important;
-}
-
-.sites a:hover{
-	-webkit-transition: all 0.5s;
-	color:#069 !important;
-	text-shadow:0px 1px 1px #555 !important;
-}
 </style>
 
 {% extends "misc/base.html" %}
@@ -49,23 +38,23 @@
 <div class="contenido" style="position:absolute; left:100px;text-align:left">
 <ul>
 {% if site.facebook %}
-<div class="sites"><a href="{{ site.facebook }}"><img src="/static/facebookLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Facebook</a></div>
+<div class="basiclink"><a href="{{ site.facebook }}"><img src="/static/facebookLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Facebook</a></div>
 {% endif %}
 {% if site.twitter %}
-<div class="sites"><a href="{{ site.twitter }}"><img src="/static/twitterLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Twitter</a></div>
+<div class="basiclink"><a href="{{ site.twitter }}"><img src="/static/twitterLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Twitter</a></div>
 {% endif %}
 {% if site.tumblr %}
-<div class="sites"><a href="{{ site.tumblr }}"><img src="/static/tumblrLogo.gif" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Tumblr</a></div>
+<div class="basiclink"><a href="{{ site.tumblr }}"><img src="/static/tumblrLogo.gif" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Tumblr</a></div>
 {% endif %}
 {% if site.linkedin %}
-<div class="sites"><a href="{{ site.linkedin }}"><img src="/static/linkedinLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Linkedin</a></div>
+<div class="basiclink"><a href="{{ site.linkedin }}"><img src="/static/linkedinLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Linkedin</a></div>
 {% endif %}
 {% if site.personal_site %}
-<div class="sites"><a href="{{ site.personal_site }}">Personal Site</a></div>
+<div class="basiclink"><a href="{{ site.personal_site }}">Personal Site</a></div>
 {% endif %}
 </ul>
 {% if edit_button %}
-<div style="position:absolute; left:450px;"><p class="sites"><a href="/site/modify/">Edit</a></p></div>
+<div style="position:absolute; left:450px;"><p class="basiclink"><a href="/site/modify/">Edit</a></p></div>
 {% endif %}
 </div>
 {% endblock %}
