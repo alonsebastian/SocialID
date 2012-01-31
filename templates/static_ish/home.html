@@ -1,17 +1,29 @@
 <style>
-.box
+.login-box
 {
-height: 60px; /*Specify Height*/
-width:  300px; /*Specify Width*/
+height: 180px; /*Specify Height*/
+width:  350px; /*Specify Width*/
 border: 1px solid black;
 background-color: #EEE;
-text-align:left;
-border-radius:6px 6px 6px 6px;
+text-align:center;
+border-radius:9px 9px 9px 9px;
 position:absolute;
-top: 85px;
-left:85px;
-width: 400px;
-align:center
+padding:5px;
+top: 10px;
+left:155px;
+}
+.register-box
+{
+height: 30px;
+width:  360px;
+border: 1px solid black;
+background-color: #EEE;
+text-align:center;
+border-radius:9px 9px 9px 9px;
+position:absolute;
+padding:0px 0px 18px 0px;
+top: 220px;
+left:155px;
 }
 
 .text{
@@ -21,14 +33,35 @@ align:center
     font-size:16px;
 	line-height:16px;
 }
-
 </style>
 {% extends "misc/base.html" %}
 
 {% block content %}
 
-<p class="text">Welcome to Social ID, provider of thousands of online identities.</p>
+<div class="login-box">
+<p class="text">Login with your Social ID account</p>
+<form method="post" action="/accounts/login/">
+{% csrf_token %}
+<table class="softform">
+<tr>
+    <td><b class="text">{{ form.username.label_tag }}</b></td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td><b class="text">{{ form.password.label_tag }}</b></td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
 
+<input type="submit" value="login" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+<div class="linkedin"><a href="/facebook/login/"><img src="/static/facebookLogo.png">Or login with your facebook account</a></div>
+</div>
+
+<div class="register-box linkedin">
+<p class="text"><a href="/accounts/register">Register a new Social ID</a></p>
+</div>
 
 {% endblock %}
 
