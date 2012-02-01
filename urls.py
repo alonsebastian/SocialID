@@ -15,7 +15,17 @@ urlpatterns = patterns('',
     (r'^$', 'static_ish.views.home'),
     (r'^who-are-we/$', 'static_ish.views.about'),
     (r'^how-it-works/$', 'static_ish.views.how'),
-#    (r'^users-stories/$', 'static_ish.views.stories'),
+
+    (r'^facebook/login/$', 'facebook.views.login'),
+    (r'^facebook/authentication_callback/$', 'facebook.views.authentication_callback'),
+
+    (r'^accounts/password/reset/$', 'django.contrib.auth.views.password_reset', 
+        {'post_reset_redirect' : '/accounts/password/reset/done/'}),
+    (r'^accounts/password/reset/done/$', 'django.contrib.auth.views.password_reset_done'),
+    (r'^accounts/password/reset/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$', 'django.contrib.auth.views.password_reset_confirm', 
+        {'post_reset_redirect' : '/accounts/password/done/'}),
+    (r'^accounts/password/done/$', 'django.contrib.auth.views.password_reset_complete'),
+
 
 
 

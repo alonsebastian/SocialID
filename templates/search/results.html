@@ -1,31 +1,17 @@
-<style>
-.link a{
-	-webkit-transition: all 0.5s;
-	color:#333 !important;
-}
-
-.link a:hover{
-	-webkit-transition: all 0.5s;
-	color:#069 !important;
-	text-shadow:0px 1px 1px #555 !important;
-}
-</style>
-
-
 {% extends "misc/base.html" %}
 
 {% block content %}
 {% if invalid %}
 <p>Sorry, but your search is invalid. Please try again.</p>
 {% endif %}
-<ul>
+<div>
+<ul style=" margin-top:0px; list-style:none; padding-left:80px; padding-top:30px; text-align:left;">
 {% for result in results %}
-    <div class="link"><li> <a href="/{{ result.social_id }}/">{{ result.user.first_name|capfirst }} {{ result.user.last_name|capfirst }} <b>({{ result.social_id }})</b></div> </li>
+    <div class="basiclink"><li> <a href="/{{ result.social_id }}/">{{ result.user.first_name|capfirst }} {{ result.user.last_name|capfirst }} <b>({{ result.social_id }})</b></div> </li>
 {% endfor %}
 </ul>
+</div>
 {% if how_many > 10 %}
 <p> Sorry, but there were many results for your search. Please improve your search </p>
 {% endif %}
 {% endblock %}
-
-

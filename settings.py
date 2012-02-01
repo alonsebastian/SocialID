@@ -119,7 +119,7 @@ TEMPLATE_DIRS = ("/home/sebastian/Programming/uniqueid/dev/templates",
 
 LOGIN_REDIRECT_URL = "/"
 
-INTERNAL_IPS = ('127.0.0.1', '192.168.0.101',)
+INTERNAL_IPS = ('127.0.0.1', '192.168.1.33', '201.255.58.235', '201.255.58.235:8000', '0.0.0.0',)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -132,10 +132,23 @@ INSTALLED_APPS = (
      'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
      'django.contrib.admindocs',
+     'facebook',
      'dev.accounts',
      'dev.search',
      'dev.personal_page',
      'dev.static_ish',
+)
+
+FACEBOOK_APP_ID = "121766881262715"
+FACEBOOK_APP_SECRET = "a224719344def928ee7084e4040b4d60"
+FACEBOOK_SCOPE = 'email'
+
+AUTH_PROFILE_MODULE = 'facebook.FacebookProfile'
+
+
+AUTHENTICATION_BACKENDS = (
+    'facebook.backend.FacebookBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 # A sample logging configuration. The only tangible logging

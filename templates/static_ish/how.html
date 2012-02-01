@@ -5,13 +5,6 @@
     font-size:16px;
 	line-height:16px;
 }
-
-.twitter a:hover{
-	-webkit-transition: all 0.5s;
-	color:#3AF !important;
-	text-shadow:0px 1px 1px #555 !important;
-}
-
 .title{
     color:#555;
     font-size:22px;
@@ -21,9 +14,12 @@
 {% extends "misc/base.html" %}
 
 {% block content %}
+<div class="basiclink">
+<p class="text">After proper <a href="accounts/register">Registration</a> in the site, or after having logged in with a facebook account,
+you will be assigned an unique ID. This ID will be unsured through time being stored on our high redundancy servers.</p>
+<p class="text">From then on using the ID is up to you. Some use it together with their name on facebook and others include it in their business cards.
+ Be creative with it! </p>
+</div>
 
-
-
-<img src="/static/how.png">
-<h2 class="title">Cacoo diagram on how it works!!</h2>
+<img src="/static/fb-example.png">
 {% endblock %}

@@ -32,6 +32,7 @@
 .about_text{
     width:250px;
 	color:#333;
+    text-align:justify;
 	text-shadow:0px 1px 5px #bfbfbf;
 	font-family: 'Cabin Condensed', sans-serif;
     font-size:18px;
@@ -114,7 +115,6 @@ html, body{
 	-moz-border-radius-bottomright:6px;
 	height:40px;
 	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
-<!--	font-size:18px; -->
     font-weight:bold;
 	text-shadow:0px 1px 2px #666;
 	padding-top:6px;
@@ -123,37 +123,18 @@ html, body{
 .footer a{
 	text-decoration:none;	
 }
-.facebook a{
-	-webkit-transition: all 0.5s;
+
+.basiclink a{
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
 	color:#333 !important;
 }
 
-.facebook a:hover{
+.basiclink a:hover{
 	-webkit-transition: all 0.5s;
-	color:#4064A3 !important;
-	text-shadow:0px 1px 2px #555 !important;
-}
-
-.twitter a{
-	-webkit-transition: all 0.5s;
-	color:#333 !important;
-}
-
-.twitter a:hover{
-	-webkit-transition: all 0.5s;
-	color:#3CF !important;
-	text-shadow:0px 1px 2px #555 !important;
-}
-
-.linkedin a{
-	-webkit-transition: all 0.5s;
-	color:#333 !important;
-}
-
-.linkedin a:hover{
-	-webkit-transition: all 0.5s;
-	color:#069 !important;
-	text-shadow:0px 1px 2px #555 !important;
+	color:#555 !important;
+	text-shadow:0px 2px 2px rgba(50, 50, 255, 1);
 }
 
 .mail a{
@@ -194,9 +175,15 @@ top: 15px;
     -moz-border-radius: 5px;
     border-radius: 5px; 
     border:1px solid #888;
+    outline:none;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
 }
 .softform input:focus{
-    border:1px solid #AAA;
+    box-shadow: 0 0 4px rgba(0, 0, 255, 1);
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 255, 1); 
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 255, 1); 
 }
 
 .softform textarea{
@@ -207,16 +194,21 @@ top: 15px;
     border-radius: 5px; 
     border:1px solid #888;
 }
-.softform textarea:focus{
-    border:1px solid #AAA;
-}
 
+.softform textarea:focus{
+    box-shadow: 0 0 4px rgba(0, 0, 255, 1);
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 255, 1); 
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 255, 1); 
+}
+.bodycss{
+background:url(/static/bg.jpg);
+}
 
 </style>
 
 </head>
 
-<body background="/static/bg.jpg">
+<body class="bodycss">
 
 <center><div class="pagina" id="pagina" style="top:40px;">
 
@@ -232,7 +224,7 @@ top: 15px;
 			<div class="subtitulo">
             	About Social ID
             </div>
-            <p class="about_text"> We aim to provide the world with a unique social ID that can identify each and every one of us on the web. This way
+            <p class="about_text">We aim to provide the world with a unique social ID that can identify each and every one of us on the web. This way
 we can meet people completely unrelated to us and find them online, or find people with a very common name.</p>
 	</div>
 
@@ -250,19 +242,19 @@ we can meet people completely unrelated to us and find them online, or find peop
 		<div style="position:absolute; left:0px; top:10px;width:945px;">
         <table border="0" cellpadding="0" cellspacing="0" style="position:absolute; left:px;">
 		  <tbody><tr>
-		    <td height="30" align="center" valign="middle" width="120"><div class="linkedin"><a href="/">Home</a></div></td>
-		    <td align="center" valign="middle" width="120"><div class="linkedin"><a href="/who-are-we">Who are we</a></div></td>
-		    <td align="center" valign="middle" width="120"><div class="linkedin"><a href="/how-it-works">How it works</a></div></td>
+		    <td height="30" align="center" valign="middle" width="120"><div class="basiclink"><a href="/">Home</a></div></td>
+		    <td align="center" valign="middle" width="120"><div class="basiclink"><a href="/who-are-we">Who are we</a></div></td>
+		    <td align="center" valign="middle" width="120"><div class="basiclink"><a href="/how-it-works">How it works</a></div></td>
             {% if username %}
-		    <td align="center" valign="middle" width="120"><div class="linkedin"><a href="/accounts/logout">Logout</a></div></td>
+		    <td align="center" valign="middle" width="120"><div class="basiclink"><a href="/accounts/logout">Logout</a></div></td>
             {% else %}
-		    <td align="center" valign="middle" width="120"><div class="linkedin"><a href="/accounts/register">Register</a></div></td>
+		    <td align="center" valign="middle" width="120"><div class="basiclink"><a href="/accounts/register">Register</a></div></td>
             {% endif %}
 
             {% if username %}
-		    <div class="linkedin" style="position:absolute; right:20px;top:3px;"><a href="/{{ id_ }}">{{ username }}<b>({{ id_ }})</b></a></div>
+		    <div class="basiclink" style="position:absolute; right:20px;top:3px;"><a href="/{{ id_ }}">{{ username }}<b>({{ id_ }})</b></a></div>
             {% else %}
-		    <div class="linkedin" style="position:absolute; right:20px;top:3px;"><a href="/accounts/login">Login</a></div>
+		    <div class="basiclink" style="position:absolute; right:20px;top:3px;"><a href="/accounts/login">Login</a></div>
             {% endif %}
 	      </tr>
 	  </tbody></table>

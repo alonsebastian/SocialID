@@ -74,8 +74,11 @@ def manage (request):
                                 tumblr = linkMaker(form.cleaned_data['tumblr']),
                                 personal_site = linkMaker(form.cleaned_data['personal_site']))
             page.save()
+            address = "/" + profile.social_id + "/"
+            return redirect(address)  #aca va el home
         else:
-            return redirect('/site/modify')
+            form = PersonalPageForm()
+        return render_to_response("personal_page/modify.html", {'form':form}, context_instance=RequestContext(request))
 
 def linkMaker(string):
     """ Some users would give the full URL to their online profiles (facebook, linkedin, etc).
@@ -92,7 +95,7 @@ def twitterizer (string):
     """ Some users would use the URL to their twitter profile and some used their user
     '@myCoolAccount'. Due to this, this function normalizes everything to a link displayable
     in the personal page."""
-    if string[0] == "@":
+    if string and string[0] == "@":
         return "https://twitter.com/#!/" + string [1:]
     else:
         return linkMaker(string)

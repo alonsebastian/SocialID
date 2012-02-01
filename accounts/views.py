@@ -130,7 +130,7 @@ def customLogin(request):
                 if page:
                     return redirect('/')
                 else:
-                    return redirect('/site/modify/')
+                    return render_to_response('accounts/welcome.html', {}, context_instance=RequestContext(request))
             else:
                 return render_to_response('accounts/confirm.html', {'invalid': True, 'form' : form}, context_instance=RequestContext(request))
         else:

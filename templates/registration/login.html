@@ -6,32 +6,40 @@
     font-size:16px;
 	line-height:16px;
 }
-
-.link a{
-	-webkit-transition: all 0.5s;
-	color:#333 !important;
+.login-box
+{
+height: 200px; /*Specify Height*/
+width:  350px; /*Specify Width*/
+border: 1px solid black;
+background-color: #EEE;
+text-align:center;
+border-radius:9px 9px 9px 9px;
+position:absolute;
+top: 10px;
+left:155px;
 }
-
-.link a:hover{
-	-webkit-transition: all 0.5s;
-	color:#069 !important;
-	text-shadow:0px 1px 1px #555 !important;
+.error-box
+{
+height: 60px; /*Specify Height*/
+width:  350px; /*Specify Width*/
+border: 1px solid black;
+background-color: #EEE;
+text-align:center;
+border-radius:9px 9px 9px 9px;
+position:absolute;
+padding:5px 5px 5px 5px;
+top: 220px;
+left:150px;
 }
 </style>
 
 {% extends "misc/base.html" %}
 
 {% block content %}
+{% if not username %}
 
-{% if form.errors %}
-<p class="text">Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-{% if invalid %}
-<p class="text">Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-<form method="post" action="/accounts/login/">
+<div class="login-box">
+<form method="post" action="/accounts/login/" style="margin-left:30px; margin-top:20px;">
 {% csrf_token %}
 <table class="softform">
 <tr>
@@ -48,5 +56,21 @@
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
+<p class="basiclink"><a href="/facebook/login/"><img src="/static/facebookLogo.png">Click here to log in with a facebook account. </a></p>
+<div class="basiclink"><p class="text">Forgot your password? <a href="/accounts/password/reset/">Recover it here</a></p></div>
+</div>
+
+
+{% if form.errors %}
+<div class="error-box"><p class="text">Your username and password didn't match. Please try again.</p></div>
+{% endif %}
+
+{% if invalid %}
+<div class="error-box"><p class="text">Your username and password didn't match. Please try again.</p></div>
+{% endif %}
+
+{% else %}
+<div class="error-box basiclink" style="top:10px;"><p class="text"> Hey you are already logged in! <a href="/"> Back home</a></p></div>
+{% endif %}
 {% endblock %}
 
