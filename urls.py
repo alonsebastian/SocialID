@@ -18,7 +18,13 @@ urlpatterns = patterns('',
 
     (r'^facebook/login/$', 'facebook.views.login'),
     (r'^facebook/authentication_callback/$', 'facebook.views.authentication_callback'),
-#    (r'^facebook_setup/(?\S+)/$', 'facebook.views.setup'),
+
+    (r'^accounts/password/reset/$', 'django.contrib.auth.views.password_reset', 
+        {'post_reset_redirect' : '/accounts/password/reset/done/'}),
+    (r'^accounts/password/reset/done/$', 'django.contrib.auth.views.password_reset_done'),
+    (r'^accounts/password/reset/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$', 'django.contrib.auth.views.password_reset_confirm', 
+        {'post_reset_redirect' : '/accounts/password/done/'}),
+    (r'^accounts/password/done/$', 'django.contrib.auth.views.password_reset_complete'),
 
 
 

@@ -119,7 +119,7 @@ TEMPLATE_DIRS = ("/home/sebastian/Programming/uniqueid/dev/templates",
 
 LOGIN_REDIRECT_URL = "/"
 
-INTERNAL_IPS = ('127.0.0.1', '192.168.0.101',)
+INTERNAL_IPS = ('127.0.0.1', '192.168.1.33', '201.255.58.235', '201.255.58.235:8000', '0.0.0.0',)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
