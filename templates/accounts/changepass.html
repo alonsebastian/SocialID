@@ -1,0 +1,68 @@
+<style>
+.text{
+	color:#333;
+	text-shadow:0px 1px 5px #bfbfbf;
+	font-family: 'Cabin Condensed', sans-serif;
+    font-size:16px;
+	line-height:16px;
+}
+.pass-box
+{
+height: 80px;
+width:  350px;
+border: 1px solid black;
+background-color: #EEE;
+text-align:center;
+border-radius:9px 9px 9px 9px;
+position:absolute;
+padding:15px;
+top: 10px;
+left:145px;
+}
+.error-box
+{
+height: 60px;
+width:  360px;
+border: 1px solid black;
+background-color: #EEE;
+text-align:center;
+border-radius:9px 9px 9px 9px;
+position:absolute;
+padding:0px 0px 0px 0px;
+top: 130px;
+left:155px;
+}
+</style>
+
+{% extends "misc/base.html" %}
+
+{% block content %}
+
+    <div class="pass-box">
+        <form action="/accounts/changepass/" method="post" style="margin-left:26px;">{% csrf_token %}
+            <table class="softform">
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    {% if samepass %}
+    <div class="error-box">
+        <p class="text"> The password didn't match. Make sure you enter the same password in both text box.</p>
+    </div>
+    {% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

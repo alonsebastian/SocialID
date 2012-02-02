@@ -4,9 +4,10 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.template import RequestContext
+from django.contrib.auth.decorators import login_required
 
 from accounts.models import UserProfile, idOnly
-from accounts.forms import RegistrationForm, LoginForm
+from accounts.forms import RegistrationForm, LoginForm, changePassForm
 from personal_page.models import PersonalPage
 from search.forms import SearchForm
 
@@ -139,8 +140,18 @@ def customLogin(request):
         return render_to_response('registration/login.html', {'form' : form}, context_instance = RequestContext(request))
 
 
-
-
-
-
-
+@login_required
+def changePassword (request):
+    if request.POST:
+        form = changePassForm(request.POST)
+        if form.is_valid():
+            if form.cleaned_data['password1'] == form.cleaned_data['password2']:
+                request.user.set_password(form.cleaned_data['password1'])
+                request.user.save()
+                return redirect("/")
+            else:
+                form = changePassForm()
+                return render_to_response("accounts/changepass.html", {'form' : form, 'samepass' : True}, context_instance = RequestContext(request))
+    else:
+        form = changePassForm()
+        return render_to_response("accounts/changepass.html", {'form' : form}, context_instance = RequestContext(request))
