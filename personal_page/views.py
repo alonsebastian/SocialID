@@ -45,7 +45,7 @@ def manage (request):
         old = PersonalPage.objects.filter(user = profile)
         if old:
             old = old [0]
-            form.initial = {'bio' : old.bio, 'facebook': old.facebook, 'location': old.location, 'linkedin' : old.linkedin, 'twitter' : old.twitter,
+            form.initial = {'bio' : old.bio, 'facebook': old.facebook, 'location': old.location, 'email': old.email, 'linkedin' : old.linkedin, 'twitter' : old.twitter,
                             'tumblr' : old.tumblr, 'personal_site': old.personal_site}
         return render_to_response("personal_page/modify.html", {'form':form}, context_instance=RequestContext(request))
     else:
@@ -56,6 +56,7 @@ def manage (request):
             old = old[0]                #Bio: (u"I'm saraza men!",)     WTF
             old.bio = form.cleaned_data['bio']
             old.location = form.cleaned_data['location']
+            old.email = form.cleaned_data['email']
             old.linkedin = form.cleaned_data['linkedin']
             old.facebook = linkMaker(form.cleaned_data['facebook'])
             old.twitter = twitterizer(form.cleaned_data['twitter'])
@@ -68,6 +69,7 @@ def manage (request):
             page = PersonalPage(user = profile,
                                 bio = form.cleaned_data['bio'],
                                 location = form.cleaned_data['location'],
+                                email = form.cleaned_data['email'],
                                 linkedin = linkMaker(form.cleaned_data['linkedin']),
                                 facebook = linkMaker(form.cleaned_data['facebook']),
                                 twitter = twitterizer(form.cleaned_data['twitter']),

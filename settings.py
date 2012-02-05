@@ -98,6 +98,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
@@ -132,6 +133,7 @@ INSTALLED_APPS = (
      'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
      'django.contrib.admindocs',
+     'debug_toolbar',
      'facebook',
      'dev.accounts',
      'dev.search',
@@ -150,6 +152,16 @@ AUTHENTICATION_BACKENDS = (
     'facebook.backend.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
+
+
+def custom_show_toolbar(request):
+    return True # Always show toolbar, for example purposes only.
+
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False
+}
+
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

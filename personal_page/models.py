@@ -9,6 +9,7 @@ class PersonalPage (models.Model):
     user = models.OneToOneField(UserProfile)
     bio = models.CharField(max_length=300)
     location = models.CharField(max_length=100)
+    email = models.CharField(max_length=50)
     facebook = models.CharField(max_length=50)
     twitter = models.CharField(max_length=50)
     tumblr = models.CharField(max_length=80)
