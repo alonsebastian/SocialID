@@ -89,7 +89,6 @@ def linkMaker(string):
     if string == "": return ""
     if "http://" not in string.lower():
         string = "http://" + string
-        print string
         return string
     else: return string
 
