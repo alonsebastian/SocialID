@@ -48,11 +48,11 @@ def register(request):
             #build the social salt
             existing_ids = idOnly.objects.all()
             newid = idOnly()
-            id_salt = sha.new(salt+new_user.first_name+new_user.last_name).hexdigest()[:8]
+            id_salt = sha.new(salt+new_user.first_name+new_user.email).hexdigest()[:8]
             newid.social_id = id_salt
             #In case that social ID already existed, a new hash is created adding a random number.
             while newid in existing_ids:
-                newid.social_id = sha.new(str(random.random())+new_user.first_name+new_user.last_name).hexdigest()[:8]
+                newid.social_id = sha.new(str(random.random())+new_user.first_name+new_user.email).hexdigest()[:8]
 
             #once a non existing id is created, it is saved
             newid.save()
