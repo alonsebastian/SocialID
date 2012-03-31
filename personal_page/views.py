@@ -13,7 +13,7 @@ def personal(request, id_): #send id from url.py as argument
     user = UserProfile.objects.filter(social_id = id_)
     site = PersonalPage.objects.filter(user = user)
     context_instance = RequestContext(request)
-    editable = False
+    editable = no_more_data = False
     if request.user.is_authenticated():
         for dictionary in context_instance:
             if 'id_' in dictionary: 
@@ -27,7 +27,11 @@ def personal(request, id_): #send id from url.py as argument
             no_bio = True
         if request.user == user[0].user:
             edit_button = True
-        return render_to_response("personal_page/general.html", {'site' : site, 'no_bio' : no_bio, 'edit_button' : edit_button, 'editable' : editable},
+
+        if "\n No more data available." in site.bio:
+            site.bio = site.bio[:-25]
+            no_more_data = True
+        return render_to_response("personal_page/general.html", {'site' : site, 'no_bio' : no_bio, 'edit_button' : edit_button, 'editable' : editable, 'no_more_data' : no_more_data},
                                   context_instance)
     return render_to_response("personal_page/general.html", {'not_found' : True, 'editable' : editable}, context_instance)
 

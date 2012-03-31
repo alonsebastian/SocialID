@@ -66,12 +66,21 @@ def register(request):
             
             # Send an email with the confirmation link
             email_subject = 'Your new Social ID confirmation'
-            email_body = "Hello, %s, and thanks for registering a new Social ID!\nYour new Social ID is: %s\n\nTo activate your account, click this link within 48 hours:\n\nhttp://127.0.0.1:8000/accounts/confirmation/%s" % (new_user.username, id_salt, new_profile.activation_key)
+            email_body = "Hello, %s, and thanks for registering a new Social ID!\nYour new Social ID is: %s\n\nTo activate your account, click this link within 48 hours:\n\nhttp://social-id.com.ar/accounts/confirmation/%s" % (new_user.username, id_salt, new_profile.activation_key)
             send_mail(email_subject,
                       email_body,
-                      'alon.sebastian@gmail.com',
+                      'noreply@social-id.com.ar',
                       [new_user.email])
             #created
+
+            #Create initial Personal Page
+            initial = PersonalPage (user = new_profile,
+                                    email = new_user.email,
+                                    bio = new_user.first_name + " " + new_user.last_name + "\n No more data available.")
+            initial.save()
+            #minimal Personal Page created
+
+
             return render_to_response('accounts/register.html', {'created': True}, context_instance=RequestContext(request))
         elif form.is_valid():
             #form is valid, but username's taken

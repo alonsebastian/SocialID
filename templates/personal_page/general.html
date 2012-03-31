@@ -23,6 +23,9 @@
 {% if site.bio %}
 <p class="text">{{ site.bio }}</p>
 {% endif %}
+{% if no_more_data %}
+<p class="text">No more data available.</p>
+{% endif %}
 {% if no_bio %}
 <p class="text"> This user has not updated his bio. </p>
 {% endif %}

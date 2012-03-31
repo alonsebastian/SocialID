@@ -7,6 +7,7 @@ from django.db import IntegrityError
 
 from facebook.models import FacebookProfile
 from accounts.models import UserProfile, idOnly
+from personal_page.models import PersonalPage
 
 class FacebookBackend:
     def authenticate(self, token=None, request=None):
@@ -91,6 +92,11 @@ class FacebookBackend:
                                           social_id = id_salt)
                 new_profile.save()
 
+
+                initial = PersonalPage (user = new_profile,
+                                        email = user.email,
+                                        bio = user.first_name + " " + user.last_name + "\n No more data available.")
+                initial.save()
         return user
 
     def get_user(self, user_id):
