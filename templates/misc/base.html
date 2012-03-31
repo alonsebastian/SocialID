@@ -5,6 +5,7 @@
 
 <link href="css.css" rel="stylesheet" type="text/css">
 <link href="css_002.css" rel="stylesheet" type="text/css">
+<link rel="icon" type="image/png" href="/static/favicon.ico">
 
 <script src="jquery.js"></script>
 
@@ -204,10 +205,24 @@ top: 15px;
 }
 .bodycss{
 background:url(/static/bg.jpg);
+background-size: 100%;
 }
 
 </style>
+<script type="text/javascript">
 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30462127-1']);
+  _gaq.push(['_setDomainName', 'social-id.com.ar']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </head>
 
 <body class="bodycss">
@@ -228,6 +243,16 @@ background:url(/static/bg.jpg);
             </div>
             <p class="about_text">We aim to provide the world with a unique social ID that can identify each and every one of us on the web. This way
 we can meet people completely unrelated to us and find them online, or find people with a very common name.</p>
+            <p class="about_text" style="position:absolute; bottom:130px; left:25px;">We currently take donations in order to pay for the hosting and other expenses related to the site.</p>
+    <div style="position:absolute; bottom:60px; left:50px;"><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="B3YEHSVMGQTML">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+</div>
+
 	</div>
 
 

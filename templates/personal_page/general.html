@@ -41,23 +41,23 @@
 <div class="contenido" style="position:absolute; left:100px;text-align:left">
 <ul>
 {% if site.facebook %}
-<div class="basiclink"><a href="{{ site.facebook }}"><img src="/static/facebookLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Facebook</a></div>
+<div class="basiclink"><a href="{{ site.facebook }}" target="_blank"><img src="/static/facebookLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Facebook</a></div>
 {% endif %}
 {% if site.twitter %}
-<div class="basiclink"><a href="{{ site.twitter }}"><img src="/static/twitterLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Twitter</a></div>
+<div class="basiclink"><a href="{{ site.twitter }}" target="_blank"><img src="/static/twitterLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Twitter</a></div>
 {% endif %}
 {% if site.tumblr %}
-<div class="basiclink"><a href="{{ site.tumblr }}"><img src="/static/tumblrLogo.gif" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Tumblr</a></div>
+<div class="basiclink"><a href="{{ site.tumblr }}" target="_blank"><img src="/static/tumblrLogo.gif" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Tumblr</a></div>
 {% endif %}
 {% if site.linkedin %}
-<div class="basiclink"><a href="{{ site.linkedin }}"><img src="/static/linkedinLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Linkedin</a></div>
+<div class="basiclink"><a href="{{ site.linkedin }}" target="_blank"><img src="/static/linkedinLogo.png" height="16" hspace="3" align="absmiddle" border="0" vspace="4" width="16">Linkedin</a></div>
 {% endif %}
 {% if site.personal_site %}
-<div class="basiclink"><a href="{{ site.personal_site }}">Personal Site</a></div>
+<div class="basiclink"><a href="{{ site.personal_site }}" target="_blank">Personal Site</a></div>
 {% endif %}
 </ul>
 {% if edit_button %}
-<div style="position:absolute; left:450px;"><p class="basiclink"><a href="/site/modify/">Edit</a></p></div>
+<div style="position:absolute; left:450px;"><p class="basiclink"><a href="/site/modify/" target="_blank">Edit</a></p></div>
 {% endif %}
 </div>
 {% endblock %}
