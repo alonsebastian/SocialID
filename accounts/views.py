@@ -137,7 +137,7 @@ def customLogin(request):
                 login(request, user)
                 profile = UserProfile.objects.get(user = user)
                 page = PersonalPage.objects.filter(user = profile)
-                if page:
+                if page and page.bio != (user.first_name + " " + user.last_name + "\n No more data available."):
                     return redirect('/')
                 else:
                     return render_to_response('accounts/welcome.html', {}, context_instance=RequestContext(request))

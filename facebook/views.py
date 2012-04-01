@@ -39,8 +39,8 @@ def authentication_callback(request):
         print "are you there?"
         #figure out where to go after setup
         profile = UserProfile.objects.get(user = user)
-        page = PersonalPage.objects.filter(user = profile)
-        if page:
+        page = PersonalPage.objects.get(user = profile)
+        if page and page.bio != (user.first_name + " " + user.last_name + "\n No more data available."):
             return redirect('/')
         else:
             return render_to_response('accounts/welcome.html', {}, context_instance=RequestContext(request))
