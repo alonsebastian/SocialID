@@ -66,7 +66,7 @@ def register(request):
             
             # Send an email with the confirmation link
             email_subject = 'Your new Social ID confirmation'
-            email_body = "Hello, %s, and thanks for registering a new Social ID!\nYour new Social ID is: %s\n\nTo activate your account, click this link within 48 hours:\n\nhttp://social-id.com.ar/accounts/confirmation/%s" % (new_user.username, id_salt, new_profile.activation_key)
+            email_body = "Hello, %s, and thanks for registering a new Social ID!\nYour new Social ID is: %s\n\nTo activate your account, click this link within 48 hours:\n\nhttp://social-id.com.ar/accounts/confirmation/%s\n\nRemember your password is: %s" % (new_user.username, id_salt, new_profile.activation_key, form.cleaned_data['password1'])
             send_mail(email_subject,
                       email_body,
                       'noreply@social-id.com.ar',
@@ -136,7 +136,7 @@ def customLogin(request):
                 #Log user in, get their profile and check if it has a personal page
                 login(request, user)
                 profile = UserProfile.objects.get(user = user)
-                page = PersonalPage.objects.filter(user = profile)
+                page = PersonalPage.objects.get(user = profile)
                 if page and page.bio != (user.first_name + " " + user.last_name + "\n No more data available."):
                     return redirect('/')
                 else:
