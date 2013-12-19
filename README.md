@@ -7,3 +7,9 @@ Working with facebook connect and Postgres was a nice experience, however after 
 
 
 DISCLAIMER: Some of this code was just meant to work and is not pretty at all.
+
+More information:
+
+http://blog.alonsebastian.com.ar/post/20864850421/social-id-a-unique-way-of-finding-your-friends
+
+http://blog.alonsebastian.com.ar
